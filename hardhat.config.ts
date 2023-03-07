@@ -31,7 +31,7 @@ task('accounts', 'Prints the list of accounts', async (taskArgs, hre) => {
 
 export const config: HardhatUserConfig = {
   solidity: {
-    compilers: genCompilers(['0.8.12']), // separated by comma
+    compilers: genCompilers(['0.8.12', '0.6.0']), // separated by comma
   },
   typechain: {
     outDir: 'typechain',
@@ -39,7 +39,7 @@ export const config: HardhatUserConfig = {
   namedAccounts: {
     owner: {
       default: HARDHAT_ACCS_PUB_KEYS[0],
-      polygon_mainnet: ACC_PUBKEY,
+      polygon_testnet: ACC_PUBKEY,
       tenderly: HARDHAT_ACCS_PUB_KEYS[0]
     },
   },
